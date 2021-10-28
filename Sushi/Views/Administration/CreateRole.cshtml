@@ -1,0 +1,23 @@
+﻿@model CreateRoleViewModel
+<form method="post" asp-controller="Administration" asp-action="CreateRole">
+    <br /><br /><br />
+    <div class="register_form">
+        <h1 id="h1reg">Creating Role</h1>
+        <img src="/pics/register.jpg" id="register_img" alt="Alternate Text" />
+        <div class="part_register">
+            <div>
+                <label asp-for="RoleName"></label>
+            </div>
+            <div>
+                <input class="input_field" asp-for="RoleName" />
+            </div>
+            <span asp-validation-for="RoleName" style="font-size:small; color:red;background-color:chocolate;"></span>
+        </div>
+      
+        @*<div class="ValidationDiv" asp-validation-summary="All"></div>*@
+
+        <input type="submit" class="create_btn" value="Create" />
+        <a asp-controller="Home" asp-action="Index" class="back_btn">Back</a>
+
+    </div>
+</form>

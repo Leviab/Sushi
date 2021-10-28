@@ -1,0 +1,88 @@
+﻿@model Sushi.Models.RegisterViewModel
+@{
+    ViewData["Title"] = "Registration   ";
+}
+<script>document.getElementsByClassName("nav_right_btn").item(1).style.borderBottom = "0.3rem groove  rgb(255 123 0)"</script>
+<body style="background-image: url(); background-color: #000; background: linear-gradient(90deg, rgba(255,106,0,1) 0%, rgba(0,0,0,1) 30%, rgba(0,0,0,1) 71%, rgba(245,119,0,1) 100%);">
+
+    <br />
+    <br />
+    <br />
+
+
+    <form method="post" asp-controller="User" asp-action="Register">
+
+        <div class="register_form">
+            <h1 id="h1reg">Registration</h1>
+            <img src="/pics/register.jpg" id="register_img" alt="Alternate Text" />
+            <div class="part_register">
+                <div>
+                    <label asp-for="Email"></label>
+                </div>
+                <div>
+                    <input class="input_field" asp-for="Email" />
+                </div>
+                <span asp-validation-for="Email" style="color:red;"></span>
+            </div>
+            <div class="part_register">
+                <div>
+                    <label asp-for="UserName"></label>
+                </div>
+                <div>
+                    <input class="input_field" asp-for="UserName" />
+                </div>
+                <span asp-validation-for="UserName" class="warning_register"></span>
+            </div>
+            <div class="part_register">
+                <div>
+                    <label asp-for="PhoneNumber"></label>
+                </div>
+                <div>
+                    <input class="input_field" asp-for="PhoneNumber" />
+                </div>
+                <span asp-validation-for="PhoneNumber" class="warning_register"></span>
+            </div>
+            <div class="part_register">
+                <div>
+                    <label asp-for="SafeWord"></label>
+                </div>
+                <div>
+                    <input class="input_field" asp-for="SafeWord" />
+                </div>
+                <span asp-validation-for="SafeWord" class="warning_register"></span>
+            </div>
+            <div class="part_register">
+                <div>
+                    <label asp-for="Password"></label>
+                </div>
+                <div>
+                    <input class="input_field" asp-for="Password" type="password" />
+                </div>
+                <span asp-validation-for="Password" class="warning_register"></span>
+            </div>
+            <div class="part_register">
+                <div>
+                    <label asp-for="ConfirmPassword"></label>
+                </div>
+                <div>
+                    <input class="input_field" asp-for="ConfirmPassword" type="password" />
+                </div>
+                <span asp-validation-for="ConfirmPassword" class="warning_register">
+                </span>
+            </div>
+            <div class="ValidationDiv"  asp-validation-summary="All"></div>
+
+            <input type="submit" class="create_btn" value="Create" />
+            <a asp-controller="Home" asp-action="Index" class="back_btn">Back</a>
+
+        </div>
+    </form>
+</body>
+@section Scripts{
+    @{
+        <partial name="_ValidationScriptsPartial" />
+    }
+
+}
+
+

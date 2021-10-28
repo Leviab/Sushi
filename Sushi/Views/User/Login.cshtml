@@ -1,0 +1,50 @@
+﻿@model LoginViewModel
+@{
+    ViewData["Title"] = "Login   ";
+}
+<script>document.getElementsByClassName("nav_right_btn").item(0).style.borderBottom = "0.3rem groove  rgb(255 123 0)"</script>
+<link rel="Shortcut Icon" href="sushi.ico" type="image/x-icon" />
+<form method="post" asp-action="Login" asp-controller="User">
+        <br />
+        <br />
+        <br />
+        <div class="register_form">
+            <h1 id="h1reg">Welcome Back</h1>
+            <img style="margin-top:5rem" src="/pics/trans_sushi.png" id="register_img" alt="Alternate Text" />
+            <div class="part_register" style="margin-top:5rem">
+                <div>
+                    <label asp-for="UserName"></label>
+                </div>
+                <div>
+                    <input class="input_field" asp-for="UserName" />
+                </div>
+            </div>
+
+            <div class="part_register">
+                <div>
+                    <label asp-for="Password"></label>
+                </div>
+                <div>
+                    <input class="input_field" asp-for="Password" type="password" />
+                </div>
+            </div>
+            <div class="part_register">
+                <div >
+                    <label asp-for="RememberMe">
+                        <input asp-for="RememberMe" />
+                        @Html.DisplayNameFor(m=>m.RememberMe)
+                    </label>
+                </div>
+            </div>
+            <div  asp-validation-summary="All" style="list-style:none;"></div>
+            <input type="submit" class="create_btn" value="Login" />
+            <a asp-controller="Home" asp-action="Index" class="back_btn">Back</a>
+
+
+        </div>
+        <div class="col-4">
+ Keep this empty 
+</div>
+
+
+</form>

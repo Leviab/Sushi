@@ -1,0 +1,71 @@
+﻿@model List<SushiEntity>
+
+
+@{
+    ViewData["Title"] = "Sushies🍣";
+}
+
+<html>
+
+
+<head>
+    <script src="https://kit.fontawesome.com/a22ee8e4c0.js" crossorigin="anonymous"></script>
+    <script>document.getElementsByClassName("nav_element").item(1).style.borderBottom = "0.3rem groove  #ffd800"</script>
+</head>
+<body>
+
+    <br /> <br /><br />
+    <h1 class="page_big_name">Best Sushi Ever</h1>
+    @*<form method="get">
+            <div style="position:fixed; z-index:10;">
+                <input class="search" id="search" name="search" type="text" placeholder="Search...">
+                <a asp-controller="Sushi" asp-action="Index" type="submit" class="search_btn"><i type="submit" class="fas fa-search"></i></a>
+            </div>
+        </form>*@
+
+    @using (@Html.BeginForm("Index", "Sushi", FormMethod.Get))
+    {
+        @*@Html.TextBox("search")*@
+        <div style="position:fixed; z-index:10;">
+            <input class="search" id="search" name="search" type="text" placeholder="Search...">
+            <input class="search_btn" type="submit" value="&#128269;"/>
+        </div>
+        
+
+    }
+    @if (Model.Count == 0)
+    {
+
+        <h1 style="position:absolute; top:100px; right:200px; color:aqua ">No sushi exist</h1> }
+    else
+        @for (int i = 0; i < (Model.Count % 4 == 0 ? Model.Count() / 4 : Model.Count / 4 + 1); i++)
+        {
+            <div class="sushi4container">
+                @for (int j = 0; j < 4 && j + 4 * i < Model.Count(); j++)
+                {
+                    <div class="sushi_container run_animation">
+                        <a asp-controller="Sushi" asp-action="Show" asp-route-Id="@Model[j+4*i].Id">
+                            <img src='/pics/@Model[j+4*i].ImageName' alt="Sushi" class="sushi_img">
+                            <span class="sushi_name"> @Model[j + 4 * i].Name</span>
+                            <br />
+                            @if (Model[j + 4 * i].IsOnSale)
+                            {
+                                <span class="sushi_sale_price"> @Model[j + 4 * i].Price grn</span>
+                            }
+                            else
+                            {
+                                <span class="sushi_price"> @Model[j + 4 * i].Price grn</span>
+                            }
+                            <div class="sushi_description">
+                                @Model[j + 4 * i].Description
+                            </div>
+                        </a>
+                    </div>
+                }
+            </div>
+            <br />
+        }
+
+</body>
+</html>
+

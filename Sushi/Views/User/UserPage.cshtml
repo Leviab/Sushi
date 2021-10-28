@@ -1,0 +1,123 @@
+﻿@inject SignInManager<User> signInManager;
+@model User
+
+@{
+    ViewData["Title"] = "UserPage";
+}
+@{
+
+
+}
+<link rel="Shortcut Icon" href="sushi.ico" type="image/x-icon" />
+<script>document.getElementsByClassName("logout_btn").item(0).style.borderBottom = "0.3rem groove  rgb(255 123 0)"</script>
+<style>
+    body {
+        background-image: none;
+        background-color: black;
+    }
+
+    img {
+        margin: auto;
+        display: block;
+    }
+
+    h1 {
+        margin: auto;
+        text-align: center;
+        -webkit-text-stroke: #ff2700 0.1rem;
+        font-family: 'Permanent Marker',cursive;
+        font-size: 3rem;
+        display: block;
+    }
+
+    .btn_user_page {
+        cursor: pointer;
+        text-align: left;
+        background-color: #ff2700;
+        color: black;
+        border: solid 0.1rem #000000;
+        border-radius: 15%;
+        font-size: 1rem;
+        font-family: 'Permanent Marker',cursive;
+        box-shadow: 0 0.2rem #999;
+        position: absolute;
+        top: 89%;
+        right: 40%;
+    }
+
+        .btn_user_page:hover {
+            background-color: #ff6a00;
+        }
+
+        .btn_user_page:active {
+            background-color: #3e8e41;
+            box-shadow: 0 0 #666;
+            transform: translateY(4px);
+        }
+
+    .back_btn_user_page {
+        position: absolute;
+        left: 40%;
+        top: 90%;
+        color: #ff2700;
+        border: solid 0.2rem #ff2700;
+        border-radius: 10%;
+    }
+
+    .dots {
+        /*   background: url(../pics/dot.gif) repeat-x bottom;*/
+    }
+</style>
+<br />
+<br />
+<div style="margin:auto;max-width:300px; padding-right:1rem; border:solid 0.1rem red;height:90vh;padding-left:1rem;">
+    <h1>Hello<br /> @User.Identity.Name !</h1>
+    <img src="https://img.icons8.com/bubbles/100/000000/user.png" style="margin:auto" alt="User-Profile-Image">
+    <span style="position:absolute;top:43%;right:40%;font-size:1.5rem">
+        <a asp-action="Edit" asp-controller="User" asp-route-id=@Model.Id><i class="far fa-edit" style="color:red"></i></a>
+    </span>
+
+    <div style="margin:0.5rem;">
+        <span style="color:#ff0a0a">User Name:</span>
+        <span style="float:right; color:#ff6a00;">
+            @Model.UserName &nbsp;
+        </span>
+    </div>
+    <div style="margin: 0.5rem;">
+        <span style="color:#ff0a0a">Email:</span>
+      
+        <span style="float:right; color:#ff6a00;">
+            @Model.Email  &nbsp;
+        </span>
+    </div>
+    <div style="margin: 0.5rem;">
+        <span style="color:#ff0a0a">Phone number:</span>
+    
+        <span style="float:right; color:#ff6a00;">
+            @Model.PhoneNumber  &nbsp;
+        </span>
+    </div>
+    <div style="margin: 0.5rem;">
+        <span style="color:#ff0a0a">Email confirmed:</span>
+      
+        <span style="float:right; color:#ff6a00;">
+            @if (Model.EmailConfirmed)
+            {<span>Yes</span> }
+            else
+            {<span>No</span>}
+            &nbsp;
+        </span>
+    </div>
+
+
+
+    <a class="back_btn_user_page" asp-controller="Home" asp-action="Index">
+        <i class="fas fa-sign-out-alt"></i>
+        Back
+    </a>
+    <form method="post" asp-controller="user" asp-action="logout">
+        <button type="submit" class="btn_user_page">
+            Logout
+        </button>
+    </form>
+</div>

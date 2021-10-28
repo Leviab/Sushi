@@ -1,0 +1,42 @@
+﻿
+@model SushiEntity
+@{
+    ViewData["Title"] = Model.Name;
+}
+<script src="https://kit.fontawesome.com/a22ee8e4c0.js" crossorigin="anonymous"></script>
+<script>document.getElementsByClassName("nav_element").item(1).style.borderBottom = "0.3rem groove  #ffd800"</script>
+<h1>Show</h1>
+
+@if (Model != null) { 
+<div class="selected_sushi">
+    <img src='/pics/@Model.ImageName' alt="Sushi" class="sushi_img">
+    <span class="sushi_name"> @Model.Name</span>
+    <br />
+    @if (Model.IsOnSale)
+    {
+        <span class="sushi_sale_price"> @Model.Price grn</span>
+    }
+    else
+    {
+        <span class="sushi_price"> @Model.Price grn</span>
+    }
+    <br />
+    <div class="sushi_description">
+        @Model.Description
+    </div>
+    <br />  
+    <div class="sushi_buttons_container">
+            <a class="heart_btn" href="#"> <i class="fas fa-heart"></i></a>
+            <a class="cart_wheel_btn" href="#"> <i class="fas fa-shopping-cart"></i></a>
+    </div>
+ 
+</div>
+    }
+else
+ {
+<h1 style="color: #ff0000;text-align:center;background-color:burlywood">
+    There is no sushi babygirl
+</h1>
+
+ }
+

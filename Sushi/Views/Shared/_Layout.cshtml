@@ -1,0 +1,60 @@
+﻿
+@inject SignInManager<User> signInManager;
+
+
+    <title>@ViewData["Title"]</title>
+    <link rel="stylesheet" href="~/css/site.css" />
+    <script src="~/js/site.js"></script>
+    <script src="https://kit.fontawesome.com/a22ee8e4c0.js" crossorigin="anonymous"></script>
+    <link rel="Shortcut Icon" href="sushi.ico" type="image/x-icon" />
+        <nav>
+            <ul class="navbar">
+                <button class="navbutton">🞬</button>
+                <li class="nav_element"><a asp-controller="Home" asp-action="Index">Home</a></li>
+                <li class="nav_element"><a asp-controller="Sushi" asp-action="Index">Sushi</a></li>
+                <li class="nav_element"><a asp-controller="Home" asp-action="Workers">Workers</a></li>
+                <li class="nav_element"><a asp-controller="Home" asp-action="About">About</a></li>
+                @if (User.IsInRole("Admin"))
+                {
+                    <li class="nav_element"><a asp-controller="Administration" asp-action="Index">Administration</a></li>
+                }
+            </ul>
+            <ul class="nav_right">
+
+                @if (signInManager.IsSignedIn(User))
+                {
+                    <li>
+                        <form asp-action="UserPage" asp-controller="User" method="post">
+                            
+                                <button type="submit" class="logout_btn nav_element">
+                                    <i class="fas fa-user"></i> @User.Identity.Name
+                                </button>              
+                        </form>
+                    </li>
+
+                }
+                else
+                {
+
+                    <li><a class="nav_right_btn" asp-controller="User" asp-action="Login">Login</a></li>
+                    <li><a class="nav_right_btn" asp-controller="User" asp-action="Register">Register</a></li>
+
+
+                }
+            </ul>
+
+
+        </nav>
+ 
+    <div class="container">
+        <main role="main" class="pb-3">
+            @RenderBody()
+        </main>
+    </div>
+
+
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    @await RenderSectionAsync("Scripts", required: false)
+

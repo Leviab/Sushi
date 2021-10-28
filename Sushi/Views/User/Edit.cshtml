@@ -1,0 +1,120 @@
+﻿@model Sushi.Models.User
+
+@{
+    ViewData["Title"] = "Edit User";
+}
+<style>
+    body {
+        background-image: none;
+        background-color: black;
+    }
+
+    img {
+        margin: auto;
+        display: block;
+    }
+
+    h1 {
+        margin: auto;
+        text-align: center;
+        -webkit-text-stroke: #ff2700 0.1rem;
+        font-family: 'Permanent Marker',cursive;
+        font-size: 3rem;
+        display: block;
+    }
+
+    .btn_user_page {
+        cursor: pointer;
+        text-align: left;
+        background-color: #ff2700;
+        color: black;
+        border: solid 0.1rem #000000;
+        border-radius: 15%;
+        font-size: 1rem;
+        font-family: 'Permanent Marker',cursive;
+        box-shadow: 0 0.2rem #999;
+        position: absolute;
+        top: 89%;
+        right: 40%;
+    }
+
+        .btn_user_page:hover {
+            background-color: #ff6a00;
+        }
+
+        .btn_user_page:active {
+            background-color: #3e8e41;
+            box-shadow: 0 0 #666;
+            transform: translateY(4px);
+        }
+
+    .back_btn_user_page {
+        position: absolute;
+        left: 40%;
+        top: 90%;
+        color: #ff2700;
+        border: solid 0.2rem #ff2700;
+        border-radius: 10%;
+    }
+    input {
+        color: #ff6a00;
+        background-color:black;
+        border-color:#ad0e0e;
+        border-radius:10%;
+        width:5vw;
+        transition:all 1s ease-in-out;
+    }
+        input:focus {
+           
+            border-width:0.2rem;
+            outline: none !important;
+            border-color: red;
+            width: 12vw;
+        }
+        input:-webkit-autofill {
+            -webkit-box-shadow: 0 0 0 2rem black inset !important;
+            -webkit-text-fill-color: #ff6a00 !important;
+        }
+</style>
+<br />
+<br />
+<form method="post">
+    <div style="margin:auto;max-width:300px; padding-right:1rem; border:solid 0.1rem red;height:90vh;padding-left:1rem;" ;>
+        <h1>Edit<br /> @User.Identity.Name !</h1>
+        <img src="https://img.icons8.com/bubbles/100/000000/user.png" style="margin:auto" alt="User-Profile-Image">
+
+
+        <div style="margin:0.5rem;">
+            <span style="color:#ff0a0a"><label asp-for="UserName"></label>:</span>
+            <span style="float:right; color:#ff6a00;">
+                <input asp-for="UserName" />
+            </span>
+        </div>
+        <div style="margin:0.5rem;">
+            <span style="color:#ff0a0a"><label asp-for="Email"></label>:</span>
+            <span style="float:right; color:#ff6a00;">
+                <input asp-for="Email" />
+            </span>
+        </div>
+        <div style="margin:0.5rem;">
+            <span style="color:#ff0a0a"><label asp-for="PhoneNumber"></label>:</span>
+            <span style="float:right; color:#ff6a00;">
+                <input asp-for="PhoneNumber" />
+            </span>
+        </div>
+        
+
+
+        <div class="ValidationDiv" asp-validation-summary="All">
+
+        </div>
+        <a class="back_btn_user_page" asp-controller="User" asp-action="UserPage">
+            <i class="fas fa-sign-out-alt"></i>
+            Back
+        </a>
+
+        <button type="submit" class="btn_user_page">
+            Edit
+        </button>
+    </div>
+</form>

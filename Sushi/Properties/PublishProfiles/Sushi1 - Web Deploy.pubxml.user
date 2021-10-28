@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+This file is used by the publish/package process of your Web project. You can customize the behavior of this process
+by editing this MSBuild file. In order to learn more about this please visit https://go.microsoft.com/fwlink/?LinkID=208121. 
+-->
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <TimeStampOfAssociatedLegacyPublishXmlFile />
+    <EncryptedPassword>AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAATFom/mx5B0u9iU1JXn+7RwAAAAACAAAAAAAQZgAAAAEAACAAAABG5Uy28eP9qlNBuq/QuqFGpQsXQ59bPHYwnmUmWa85XAAAAAAOgAAAAAIAACAAAADIZxbJHCRs50ltMSIeqeKCR31kwDdg46Q3Fpp/wV5dAYAAAACJx7UBCDyLjJghrnz0d1r9dNvWqWhkYX+xcUVdquhzx29iQRbxmj3VtUaBQQ/B3L5tSoLPk2GGygviD1Y+mfB1SahWBlIiMLTNWU6XMiFfPHuXBxJHSN2Lr7kbQ8oDZYQGq7BV5AEianF9jA9XMAN2dj67iBwEzxvwSXSnTv6AuEAAAAByzWZRPzB6dBKmkgcEWIQTqko2M4uFbSjBxz5pLkEh0P2i0QYr4VoUTifE5au5yKWu5j/D3NgUq1iaHZbpYmhI</EncryptedPassword>
+    <History>True|2021-10-26T17:42:33.1495668Z;</History>
+  </PropertyGroup>
+  <ItemGroup>
+    <DestinationConnectionStrings Include="DefaultConnection">
+      <Value>Data Source=tcp:sushidbserver.database.windows.net,1433%3bInitial Catalog=Sushi_db%3bUser Id=adminuser%40sushidbserver%3bPassword=BG17rt21</Value>
+    </DestinationConnectionStrings>
+  </ItemGroup>
+  <ItemGroup>
+    <EFMigrations Include="Sushi.Data.ApplicationDbContext">
+      <Value>Data Source=tcp:sushidbserver.database.windows.net,1433%3bInitial Catalog=Sushi_db%3bUser Id=adminuser%40sushidbserver%3bPassword=BG17rt21</Value>
+    </EFMigrations>
+  </ItemGroup>
+</Project>
